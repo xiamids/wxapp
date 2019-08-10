@@ -28,10 +28,9 @@ def write_json(data, path):
         sort_keys=True,
         indent=4,
         separators=(',', ': '),
-        encoding="utf-8",
         ensure_ascii=False)
 
-    with open(path, 'w') as fp:
+    with open(path, 'w',encoding = 'utf8') as fp:
         fp.write(in_json)
 
     print('-> %s' % path)
@@ -49,7 +48,7 @@ def write_component_json(data):
 # wget
 # ----------------------------------------------------------
 def wget(url):
-    response = urllib2.urlopen(url)
+    response = request.urlopen(url)
     return response.read()
 
 
@@ -67,7 +66,7 @@ def parse_html(html):
         href = td[0].xpath('a/@href')
         desc = td[1].text
 
-        if len(api) <> 1: continue
+        if len(api) != 1: continue
         api = api[0]
         href = href[0]
         wxapp_json[api] = {
