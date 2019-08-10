@@ -2,12 +2,15 @@
 #coding=utf-8
 
 from lxml import etree # pip install lxml
-import urllib2
+from importlib import reload
+
+from urllib import request
+
 import json
 
 import sys
 reload(sys)
-sys.setdefaultencoding('utf-8')
+
 
 # ----------------------------------------------------------
 # config
